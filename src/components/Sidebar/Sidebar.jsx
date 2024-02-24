@@ -41,18 +41,18 @@ export default class Sidebar extends React.Component {
 
         return (
             <div className={ containerClassnames }>
-                <div>
+                <div className='sidebar-header'>
                     <img
                         src={ logo }
                         alt="TensorFlow logo"
                     />
                     <span>TensorFlow</span>
-                    <button onClick={ this.toggleSidebar }>
+                    <button className={isOpened ? 'openButton' : 'closeButton'} onClick={ this.toggleSidebar }>
                         <FontAwesomeIcon icon={ isOpened ? 'angle-left' : 'angle-right' } />
                     </button>
                 </div>
 
-                <div>
+                <div className='nav-links'>
                     {
                         routes.map((route) => (
                             <div key={ route.title } onClick={ () => this.goToRoute(route.path) }>
@@ -63,7 +63,7 @@ export default class Sidebar extends React.Component {
                     }
                 </div>
 
-                <div>
+                <div className='nav-links'> 
                     {
                         bottomRoutes.map((route) => (
                             <div key={ route.title } onClick={ () => this.goToRoute(route.path) }>
